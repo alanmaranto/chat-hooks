@@ -2,22 +2,18 @@ import React, { createContext, useReducer } from "react";
 
 const CTX = createContext();
 
-/* {
-    from: 'user'
-    msg: 'hi'
-    topic: 'general'
-    }
-    
-    state = {
-        general: [
-            {msg}, {msg}, {msg}, {newmsg}
-        ]
-        topic2: [
-
-        ]
-    }
-
-*/
+const initialState = {
+    general: [
+        {from: 'alan', msg: 'hello'},
+        {from: 'alan2', msg: 'hello2'},
+        {from: 'alan3', msg: 'hello3'},
+    ],
+    topic2: [
+        {from: 'alan4', msg: 'hello4'},
+        {from: 'alan5', msg: 'hello5'},
+        {from: 'alan6', msg: 'hello6'},
+    ]
+}
 
 const reducer = (state, action) => {
   const { from, msg, topic } = action.payload;
@@ -40,7 +36,11 @@ const reducer = (state, action) => {
 
 const Store = props => {
   const reducerHook = useReducer(reducer, initialState);
-  return <CTX.Provider value={}>{props.children}</CTX.Provider>;
+  return (
+    <CTX.Provider value={reducerHook}>
+        {props.children}
+    </CTX.Provider>
+  );
 };
 
 export default Store;
