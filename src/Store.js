@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-const CTX = createContext();
+export const CTX = createContext();
 
 const initialState = {
     general: [
