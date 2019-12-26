@@ -43,7 +43,7 @@ const Dashboard = () => {
   const classes = useStyles();
 
   //CTX Store
-  const [allChats] = useContext(CTX);
+  const {allChats, sendChatAction} = useContext(CTX);
   const topics = Object.keys(allChats);
 
   const [activeTopic, changeActiveTopic] = useState(topics[0]);
@@ -88,7 +88,15 @@ const Dashboard = () => {
             value={textValue}
             onChange={e => changeTextValue(e.target.value)}
           />
-          <Button variant="contained" color="primary">
+          <Button
+            onClick={() => {
+              sendChatAction(textValue);
+              changeTextValue('');
+            }}
+            variant="contained" 
+            color="primary"
+            className={classes.button}
+          >
             SEND
           </Button>
         </div>
