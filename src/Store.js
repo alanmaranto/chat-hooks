@@ -45,6 +45,9 @@ const Store = ({children}) => {
 
   if(!socket) {
     socket = io(':5000')
+    socket.on('chat message', (msg) => {
+      console.log({msg});
+    });
   }
 
   const user = 'alan' + Math.random(100).toFixed(2)
