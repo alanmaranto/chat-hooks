@@ -7,7 +7,10 @@ app.get('/', (req,res) => {
 });
 
 io.on('connection', (socket) => {
-    console.log('we have a new conection')
+    console.log('we have a new conection');
+    socket.on('chat message', (msg) => {
+        console.log('message: ' + msg)
+    })
 });
 
 http.listen(5000, () => {
