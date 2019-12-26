@@ -47,9 +47,11 @@ const Store = ({children}) => {
     socket = io(':5000')
   }
 
+  const user = 'alan' + Math.random(100).toFixed(2)
+
   const [allChats] = useReducer(reducer, initialState);
   return (
-    <CTX.Provider value={{allChats, sendChatAction}}>
+    <CTX.Provider value={{allChats, sendChatAction, user}}>
         {children}
     </CTX.Provider>
   );
