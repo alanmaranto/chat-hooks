@@ -43,16 +43,17 @@ const sendChatAction = (value) => {
 }
 const Store = ({children}) => {
 
+  const [allChats, dispatch] = useReducer(reducer, initialState);
+
   if(!socket) {
     socket = io(':5000')
     socket.on('chat message', (msg) => {
-      console.log({msg});
+      dispatch({type:'RECEIVE_MESSAGE' , payload: msg});
     });
   }
 
   const user = 'alan' + Math.random(100).toFixed(2)
 
-  const [allChats] = useReducer(reducer, initialState);
   return (
     <CTX.Provider value={{allChats, sendChatAction, user}}>
         {children}
