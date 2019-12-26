@@ -1,15 +1,15 @@
-const express = require('express');
-const app = express();
-const io = require('socket.io');
+const app = require('express')();
+const http = require('http').createServer(app);
+const io = require('socket.io')(http);
 
 app.get('/', (req,res) => {
     res.send('Hello World');
 });
 
 io.on('connection', (socket) => {
-    console.log('new conection')
+    console.log('we have a new conection')
 });
 
-app.listen(5000, () => {
+http.listen(5000, () => {
     console.log('listening on 5000');
 });
