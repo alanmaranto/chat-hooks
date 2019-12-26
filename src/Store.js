@@ -5,13 +5,13 @@ export const CTX = createContext();
 const initialState = {
     general: [
         {from: 'alan', msg: 'hello'},
-        {from: 'alan2', msg: 'hello2'},
-        {from: 'alan3', msg: 'hello3'},
+        {from: 'alan', msg: 'hello2'},
+        {from: 'alan', msg: 'hello3'},
     ],
     topic2: [
-        {from: 'alan4', msg: 'hello4'},
-        {from: 'alan5', msg: 'hello5'},
-        {from: 'alan6', msg: 'hello6'},
+        {from: 'alan2', msg: 'hello4'},
+        {from: 'alan2', msg: 'hello5'},
+        {from: 'alan2', msg: 'hello6'},
     ]
 }
 
